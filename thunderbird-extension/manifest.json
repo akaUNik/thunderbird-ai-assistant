@@ -1,24 +1,25 @@
 {
-  "manifest_version": 2,
-  "name": "Thunderbird AI Assistant",
-  "version": "1.0",
-  "description": "AI-powered email assistant using LangChain",
-  "author": "OpenHands",
-  "applications": {
-    "gecko": {
-      "id": "thunderbird-ai@openhands.example.com",
-      "strict_min_version": "78.0"
+    "manifest_version": 2,
+    "name": "Thunderbird AI Assistant",
+    "version": "1.0",
+    "description": "AI-powered email assistant using LangChain",
+    "author": "OpenHands",
+    "applications": {
+        "gecko": {
+            "id": "thunderbird-ai@openhands.example.com",
+            "strict_min_version": "78.0"
+        }
+    },
+    "permissions": [
+        "messagesRead",
+        "messagesModify",
+        "<all_urls>"
+    ],
+    "background": {
+        "scripts": ["content/background.js"]
+    },
+    "message_display_action": {
+        "default_icon": "content/icon.png",
+        "default_title": "AI Assistant"
     }
-  },
-  "permissions": [
-    "messagesRead",
-    "messagesModify"
-  ],
-  "background": {
-    "scripts": ["background.js"]
-  },
-  "message_display_action": {
-    "default_popup": "popup.html",
-    "default_title": "AI Assistant"
-  }
 }

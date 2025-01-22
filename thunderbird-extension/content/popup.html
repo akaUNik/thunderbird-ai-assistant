@@ -10,14 +10,20 @@
         }
         .section {
             margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
         }
         .section-title {
             font-weight: bold;
             margin-bottom: 5px;
+            color: #2a2a2a;
         }
         #loading {
             display: none;
             color: #666;
+            text-align: center;
+            padding: 10px;
         }
         button {
             background-color: #0060df;
@@ -26,15 +32,23 @@
             padding: 8px 16px;
             border-radius: 4px;
             cursor: pointer;
+            width: 100%;
+            margin-bottom: 15px;
         }
         button:hover {
             background-color: #003eaa;
+        }
+        #error {
+            color: #d70022;
+            display: none;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
     <button id="analyzeBtn">Analyze Email</button>
-    <div id="loading">Analyzing...</div>
+    <div id="loading">Analyzing email content...</div>
+    <div id="error"></div>
     
     <div class="section">
         <div class="section-title">Summary:</div>

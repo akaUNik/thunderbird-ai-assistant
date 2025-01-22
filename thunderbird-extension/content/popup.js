@@ -4,10 +4,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const summary = document.getElementById('summary');
     const suggestion = document.getElementById('suggestion');
     const actions = document.getElementById('actions');
+    const error = document.getElementById('error');
 
     analyzeBtn.addEventListener('click', async () => {
         try {
             loading.style.display = 'block';
+            error.style.display = 'none';
             summary.textContent = '';
             suggestion.textContent = '';
             actions.textContent = '';
@@ -24,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 subject: message.subject,
                 body: fullMessage.parts[0].body,
                 sender: message.author,
-                recipients: message.recipients
+                recipients: message.recipients || []
             };
 
             // Send to our Python backend
@@ -37,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             if (!response.ok) {
-                throw new Error('Failed to analyze email');
+                throw new Error('Failed to analyze email. Please make sure the backend server is running.');
             }
 
             const result = await response.json();
@@ -51,7 +53,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         } catch (error) {
             console.error('Error:', error);
-            summary.textContent = 'Error analyzing email: ' + error.message;
+            error.textContent = error.message;
+            error.style.display = 'block';
         } finally {
             loading.style.display = 'none';
         }
