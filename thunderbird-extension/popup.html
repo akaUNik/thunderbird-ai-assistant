@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            width: 400px;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+        }
+        .section {
+            margin-bottom: 15px;
+        }
+        .section-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        #loading {
+            display: none;
+            color: #666;
+        }
+        button {
+            background-color: #0060df;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #003eaa;
+        }
+    </style>
+</head>
+<body>
+    <button id="analyzeBtn">Analyze Email</button>
+    <div id="loading">Analyzing...</div>
+    
+    <div class="section">
+        <div class="section-title">Summary:</div>
+        <div id="summary"></div>
+    </div>
+    
+    <div class="section">
+        <div class="section-title">Suggested Response:</div>
+        <div id="suggestion"></div>
+    </div>
+    
+    <div class="section">
+        <div class="section-title">Action Items:</div>
+        <div id="actions"></div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
